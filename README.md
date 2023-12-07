@@ -6,8 +6,8 @@ POS tagger for German language based on a 1-layer LSTM with the Adam optimizer a
 
 Follow this [jupyter notebook](https://github.com/uliana65/NN-POStagger/blob/main/NN_postagger.ipynb) to train a model. Make sure data_loader.py is in the same folder as the notebook.
 
-Corpus language: German
-Corpus format: CoNLL (here I used [UD_German-GSD](https://universaldependencies.org/treebanks/de_gsd/index.html))
+Corpus language: German 
+Corpus format: CoNLL (here I used [UD_German-GSD](https://universaldependencies.org/treebanks/de_gsd/index.html)) 
 Embeddings: [FastText](https://pytorch.org/text/stable/_modules/torchtext/vocab/vectors.html#FastText) word embeddings pretrained on Wikipedia; on initialization, takes some time to load embeddings then uses the cached ones
 
 ## Performance
@@ -24,8 +24,8 @@ On the other hand, a bigger learning rate (0.05) with 150-units hidden layer app
 
 Further training (>34 epochs) leads to overfitting: the loss drops to 0.12 and the training accuracy rises to 95.5%, while the development accuracy starts declining.
 
-Final model's test accuracy: 89.99%
-Test accuracy by part of speech:
+Final model's test accuracy: 89.99% 
+Test accuracy by part of speech: 
 | POS | Accuracy | Percentage in training data |
 | --- | -------- | --------------------------- |
 NOUN|0.88|18.5%
