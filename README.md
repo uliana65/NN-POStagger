@@ -19,12 +19,12 @@ I experimented with two learning rates (0.01, 0.05) and two hidden layer sizes (
 ![training_performance](https://github.com/uliana65/NN-POStagger/blob/main/figures/training_1.png)
 ![training_performance](https://github.com/uliana65/NN-POStagger/blob/main/figures/training_3.png)
 
-As evident from the plots above, a smaller learning rate (0.01) seems to converge faster with smaller number of hidden units. After the 10th epoch, 300-units model reaches about 94.3% training accuracy, 89% development accuracy and the loss is slightly above 0.18. While a smaller 150-units model has a better loss at this stage (<0.18). Considering that a higher number of hidden units results in a longer training time and their performance is comparable, a smaller model is more preferable. 
+As evident from the plots above, a smaller learning rate (0.01) seems to converge faster with smaller number of hidden units. After the 10th epoch, 300-units model reaches about 94.3% training accuracy, 89% development accuracy and the loss is slightly above 0.18. While a smaller 150-units model has a better loss at this stage (<0.18). Considering that a higher number of hidden units results in a longer training time and their performance is comparable, a smaller model is more preferable. Further training of the smaller model (>34 epochs) leads to overfitting: the loss drops to 0.12 and the training accuracy rises to 95.5%, while the development accuracy starts declining.
+ 
+
 On the other hand, a bigger learning rate (0.05) with 150-units hidden layer appears to overshoot the minima which shows in more distinct fluctuations of the loss and training accuracy after the 5th epoch (plot below). Overall, after full 30 epochs this learning rate leads to a worse performance compared to a smaller one with the same hidden layer size. 
 
 ![training_performance](https://github.com/uliana65/NN-POStagger/blob/main/figures/training_4.png)
-
-Further training (>34 epochs) leads to overfitting: the loss drops to 0.12 and the training accuracy rises to 95.5%, while the development accuracy starts declining.
 
 Final model's test accuracy: 89.99% 
 Test accuracy by part of speech: 
