@@ -1,4 +1,4 @@
-# NN-POStagger
+# NN POS Tagger
 
 POS tagger for German language based on a 1-layer LSTM with the Adam optimizer and Cross Entropy loss function. 
 
