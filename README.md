@@ -4,7 +4,7 @@ POS tagger for German language based on a 1-layer LSTM with the Adam optimizer a
 
 ## Training
 
-Follow jupyter notebook to train a model. Make sure data_loader.py is in the same folder as the notebook.
+Follow this [jupyter notebook](https://github.com/uliana65/NN-POStagger/blob/main/NN_postagger.ipynb) to train a model. Make sure data_loader.py is in the same folder as the notebook.
 
 Corpus language: German
 Corpus format: CoNLL (here I used [UD_German-GSD](https://universaldependencies.org/treebanks/de_gsd/index.html))
