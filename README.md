@@ -27,6 +27,7 @@ On the other hand, a bigger learning rate (0.05) with 150-units hidden layer app
 ![training_performance](https://github.com/uliana65/NN-POStagger/blob/main/figures/training_4.png)
 
 Final model's test accuracy: 89.99% 
+
 Test accuracy by part of speech: 
 | POS | Accuracy | Percentage in training data |
 | --- | -------- | --------------------------- |
