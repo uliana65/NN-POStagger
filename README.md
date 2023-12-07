@@ -11,10 +11,6 @@ Corpus format: CoNLL (here I used [UD_German-GSD](https://universaldependencies.
 Embeddings: [FastText](https://pytorch.org/text/stable/_modules/torchtext/vocab/vectors.html#FastText) word embeddings pretrained on Wikipedia; on initialization, takes some time to load embeddings then uses the cached ones
 
 ## Performance
-[SHOW FIGURES AND DISCUSS]
-LR: 0.01, 0.05
-HS: 300, 150
-Epochs: 10-30
 
 I experimented with two learning rates (0.01, 0.05) and two hidden layer sizes (300, 150) during training. The plots below show the model's training and development accuracy as well as the loss plotted for each epoch (x-axis). 
 
