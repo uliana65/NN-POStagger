@@ -1,10 +1,9 @@
-# import nltk
 import conllu
 import torch
 from torch.utils.data import Dataset, DataLoader
 import torchtext as tt
 from itertools import chain
-import tqdm
+
 
 class TaggingDataset(Dataset):
     """
@@ -23,6 +22,7 @@ class TaggingDataset(Dataset):
         sample = {"sentence": self.sentences[idx], "tags": self.tag_sequences[idx]}
         return sample
 
+
 def tagging_collate_fn(batch):
     tensors = []
     for instance in batch:
@@ -32,15 +32,18 @@ def tagging_collate_fn(batch):
 
     return torch.stack(tensors)
 
+
 def preprocess_token(word):
-    if word == ".":
+    if word in [".", "!", "?"]:
         return "</s>"
     else:
         return word.lower()
 
-# create vocabularies
+
 def unk_init(x):
+    # create vocabulary
     return torch.randn_like(x)
+
 
 def load_conllu_corpus(filename):
     sentences = list()
@@ -55,6 +58,7 @@ def load_conllu_corpus(filename):
 
     return sentences, tag_sequences
 
+
 def make_dataloader(sentences, tag_sequences, sents_vocab, pos_vocab):
     train_sent_ts = [torch.tensor(sents_vocab.lookup_indices(sent)) for sent in sentences]
     train_tag_ts = [torch.tensor(pos_vocab.lookup_indices(seq)) for seq in tag_sequences]
@@ -64,6 +68,7 @@ def make_dataloader(sentences, tag_sequences, sents_vocab, pos_vocab):
 
     return train_dataloader
 
+
 def load(training_corpus, development_corpus, test_corpus):
     """
     Loads a tagged corpus in CoNLL format and returns a tuple with the following entries:
@@ -71,22 +76,19 @@ def load(training_corpus, development_corpus, test_corpus):
     - DataLoader for the development set
     - DataLoader for the test set
     - Vocabulary for the natural-language side (as a Torchtext Vocab object)
-    - Vocabulary for the tag side (dito)
+    - Vocabulary for the tag side (as a Torchtext Vocab object)
     - Pretrained embeddings, as a tensor of shape (vocabulary size, embedding dimension)
 
     :param training_corpus: filename of the training corpus
     :param development_corpus: filename of the development corpus
     :param test_corpus: filename of the test corpus
-    :return:
     """
-    # read CoNLL file "de_gsd-ud-train.conllu"
+    # read CoNLL file
     train_sentences, train_tag_sequences = load_conllu_corpus(training_corpus)
     dev_sentences, dev_tag_sequences = load_conllu_corpus(development_corpus)
     test_sentences, test_tag_sequences = load_conllu_corpus(test_corpus)
 
-    # Build vocabulary from pretrained word embeddings.
-    # Theoretically, FastText should predict embeddings for unknown words using subword embeddings;
-    # but this does not seem to work when using it through Torchtext. Maybe I should fix this sometime.
+    # Build vocabulary from pretrained word embeddings with FastText
     fasttext = tt.vocab.FastText(language='de', unk_init=unk_init)
     sents_vocab = tt.vocab.build_vocab_from_iterator(chain(train_sentences, dev_sentences, test_sentences), specials=["<unk>", "<pad>"])
     sents_vocab.set_default_index(0)
