@@ -53,4 +53,5 @@ X|0.04|0.2%
 We can see, that the accuracy is near perfect for POS tags like PUNCT, DET, and ADP, as their set of tokens is rather limited and distributional frequency is high. On the other hand, the most frequent tag NOUN is below 90% accuracy, which indicates the complexity of this core category. Both form (das Leben (NOUN) vs. leben (VERB), der Dumme (NOUN) vs. dumme (ADJ)) and structure (NOUN can appear after/before any other POS) make this category ambiguous.
 
 ## Tagging
-[LINK TO WEBSITE TO TRY OUT THE MODEL: in progress]
+You can try out the deployed model here: [LINK COMING SOON]
+Note that this pipeline uses a smaller vocabulary set, so the test accuracy is 88.11%.
