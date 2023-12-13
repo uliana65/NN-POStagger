@@ -47,7 +47,6 @@ PART|0.82|1.3%
 SYM|0.5|0.02%
 PUNCT|0.99|14.1%
 INTJ|0.0|0.02%
-_|0.99|1.6%
 X|0.04|0.2%
 
 We can see, that the accuracy is near perfect for POS tags like PUNCT, DET, and ADP, as their set of tokens is rather limited and distributional frequency is high. On the other hand, the most frequent tag NOUN is below 90% accuracy, which indicates the complexity of this core category. Both form (das Leben (NOUN) vs. leben (VERB), der Dumme (NOUN) vs. dumme (ADJ)) and structure (NOUN can appear after/before any other POS) make this category ambiguous.
